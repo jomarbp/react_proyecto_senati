@@ -1,33 +1,45 @@
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form as FormikForm, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-function Contacto(){
+import { Container, Form, Button } from 'react-bootstrap';
+
+function Contacto() {
     return (
-        <div>
-            <h1>Acerca de :  .......</h1>
+        <Container className="mt-5">
+            <h1 className="mb-4">Acerca de : .......</h1>
             <Formik
-                initialValues={{ nombre: '', email: ''}}
+                initialValues={{ nombre: '', email: '' }}
                 validationSchema={Yup.object({
                     nombre: Yup.string().required('Nombre requerido'),
-                    email: Yup.string().email('Email Invalido').required('Email requerido'),
+                    email: Yup.string().email('Email inválido').required('Email requerido'),
                 })}
-                onSubmit={(values)=>{
+                onSubmit={(values) => {
                     console.log('Formulario enviado: ', values);
                     alert('Formulario enviado con éxito');
-                }
-                }
+                }}
             >
-            <Form>
-                <label>Nombre: </label>
-                <Field name="nombre" type="text"/>
-                <ErrorMessage name='nombre' component="div" style={{ color: 'red' }} />
-                <label>Email: </label>
-                <Field name="email" type="email"/>
-                <ErrorMessage name='email' component="div" style={{ color: 'red' }} />
-                <button type='submit'>Enviar</button>
-            </Form>
+                {({ handleSubmit }) => (
+                    <FormikForm onSubmit={handleSubmit}>
+                        <Form.Group className="mb-3" controlId="formNombre">
+                            <Form.Label>Nombre</Form.Label>
+                            <Field name="nombre" type="text" as={Form.Control} />
+                            <ErrorMessage name="nombre" component="div" className="text-danger" />
+                        </Form.Group>
+
+                        <Form.Group className="mb-3" controlId="formEmail">
+                            <Form.Label>Email</Form.Label>
+                            <Field name="email" type="email" as={Form.Control} />
+                            <ErrorMessage name="email" component="div" className="text-danger" />
+                        </Form.Group>
+
+                        <Button variant="primary" type="submit">
+                            Enviar
+                        </Button>
+                    </FormikForm>
+                )}
             </Formik>
-            <p>Esta es la sección de CONTACTO</p>
-        </div>
+            <p className="mt-4">Esta es la sección de CONTACTO</p>
+        </Container>
     );
 }
+
 export default Contacto;
