@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Container, Row, Col, Card, Button, Badge, Nav } from "react-bootstrap";
 function Home(){
     const [contador, setContador] = useState(0);
     useEffect(()=>{
@@ -6,10 +7,8 @@ function Home(){
         console.log('contador actualizado');
     },[contador]);
     return(
-        <div>
-            <h1>Principal Contador</h1>
-            <p>Contador: {contador} </p>
-            <button onClick={()=>setContador(contador+1)}>Incrementar</button>
+        <div style={{ minHeight: '100vh', background: 'linear-gradient(135deg, #66aaeaff 0%, #764ba2 100%)'}}>
+            
         </div>
     );
 }
