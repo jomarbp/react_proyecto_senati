@@ -11,21 +11,24 @@ function Navbar() {
                 </BootstrapNavbar.Brand>
                 <BootstrapNavbar.Toggle aria-controls="basic-navbar-nav" />
                 <BootstrapNavbar.Collapse id="basic-navbar-nav">
-                    <Nav.Link as={Link} to={RUTAS.INICIO} className="fw-medium">
-                        Principal
-                    </Nav.Link>
+                    <Nav className="ms-auto">
+                        <Nav.Link as={Link} to={RUTAS.INICIO} className="fw-medium">
+                            Principal
+                        </Nav.Link>
 
-                    <Nav.Link as={Link} to={RUTAS.ABOUT} className="fw-medium">
-                        Acerca
-                    </Nav.Link>
+                        <Nav.Link as={Link} to={RUTAS.ABOUT} className="fw-medium">
+                            Acerca
+                        </Nav.Link>
 
-                    <Nav.Link as={Link} to={RUTAS.CONTACTO} className="fw-medium">
-                        Contacto
-                    </Nav.Link>
+                        <Nav.Link as={Link} to={RUTAS.CONTACTO} className="fw-medium">
+                            Contacto
+                        </Nav.Link>
 
-                    <Nav.Link as={Link} to="/usuario/123" className="fw-medium">
-                        Usuario
-                    </Nav.Link>
+                        <Nav.Link as={Link} to="/usuario/123" className="fw-medium">
+                            Usuario
+                        </Nav.Link>
+                    </Nav>
+
                 </BootstrapNavbar.Collapse>
 
             </Container>
